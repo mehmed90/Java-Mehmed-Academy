@@ -1,5 +1,7 @@
 package model;
 
+import java.util.StringJoiner;
+
 public class Person {
     private Long id;
     private String firstName;
@@ -70,7 +72,7 @@ public class Person {
         return getId() != null ? getId().hashCode() : 0;
     }
 
-    @Override
+ /*   @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Person{");
         sb.append("id=").append(id);
@@ -79,5 +81,15 @@ public class Person {
         sb.append(", age=").append(age);
         sb.append('}');
         return sb.toString();
+    }*/
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("firstName='" + firstName + "'")
+                .add("lastName='" + lastName + "'")
+                .add("age=" + age)
+                .toString();
     }
 }
